@@ -1,6 +1,5 @@
-package Clase2TM;
+package Clase1y2;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class Fecha {

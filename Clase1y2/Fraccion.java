@@ -1,4 +1,4 @@
-package Clase2TM;
+package Clase1y2;
 
 public class Fraccion {
     private int Numerador;
@@ -79,4 +79,5 @@ public class Fraccion {
     public Fraccion dividir(int entero){
         return new Fraccion(getNumerador(), getDenominador()*entero);
     }
+
 }

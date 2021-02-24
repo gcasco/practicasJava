@@ -1,4 +1,4 @@
-package Clase2TM;
+package Clase1y2;
 
 public class Libro {
     private int IdLibro;
