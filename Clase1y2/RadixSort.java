@@ -1,5 +1,7 @@
 package Clase1y2;
 
+import Clase3.Precedable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,94 +10,30 @@ public class RadixSort {
     private static int maxLength;
 
 
-    public static void radixSort(int arr[]) {
-
-        String stringArr[] = Arrays.stream(arr)
-                .mapToObj(String::valueOf)
-                .toArray(String[]::new);
-
-        ArrayList radixSortFinal = normalize(stringArr, "0");
-        System.out.println("El array normalizado es el siguiente: " + radixSortFinal.toString());
-        sort(radixSortFinal, radixSortFinal.get(0).toString().length());
-        sort(radixSortFinal, radixSortFinal.get(0).toString().length() - 1);
-
-
-    }
-
     public static void sort(ArrayList arr, int indice) {
 
-        ArrayList L2 = new ArrayList();
-        ArrayList L0 = new ArrayList();
-        ArrayList L3 = new ArrayList();
-        ArrayList L1 = new ArrayList();
-        ArrayList L4 = new ArrayList();
-        ArrayList L5 = new ArrayList();
-        ArrayList L6 = new ArrayList();
-        ArrayList L7 = new ArrayList();
-        ArrayList L8 = new ArrayList();
-        ArrayList L9 = new ArrayList();
+        ArrayList[] listas= new ArrayList[10];
+        int longitudString = arr.get(0).toString().length()-1;
 
-        for (int i = 0; i < arr.size(); i++) {
-            switch (arr.get(i).toString().charAt(indice - 1)) {
-                case '0':
-                    L0.add(arr.get(i));
-                    break;
-                case '1':
-                    L1.add(arr.get(i));
-                    break;
-                case '2':
-                    L2.add(arr.get(i));
-                    break;
-                case '3':
-                    L3.add(arr.get(i));
-                    break;
-                case '4':
-                    L4.add(arr.get(i));
-                    break;
-                case '5':
-                    L5.add(arr.get(i));
-                    break;
-                case '6':
-                    L6.add(arr.get(i));
-                    break;
-                case '7':
-                    L7.add(arr.get(i));
-                    break;
-                case '8':
-                    L8.add(arr.get(i));
-                    break;
-                case '9':
-                    L9.add(arr.get(i));
-                    break;
-                default:
-                    break;
+        for(int i = 0; i<=longitudString ;i++){
+            //inicializa listas
+            for (int k=0;k<10;k++ ){
+                listas[k] =new ArrayList();
             }
+            for(int j = 0; j<arr.size();j++){
+                int lista = arr.get(j).toString().charAt(longitudString-i) - '0';
+                listas[lista].add(arr.get(j));
+            }
+            //genero array resultante
+            arr = new ArrayList();
+            for (ArrayList l:listas){
+                if(l.size()>0) {
+                    arr.addAll(l);
+                }
+            }
+            System.out.println("La lista resultante es: "+Arrays.toString(arr.toArray()));
         }
-        System.out.println("Clasificando en listas en orden ascendente: ");
-        System.out.println("L0=" + L0.toString());
-        System.out.println("L1=" + L1.toString());
-        System.out.println("L2=" + L2.toString());
-        System.out.println("L3=" + L3.toString());
-        System.out.println("L4=" + L4.toString());
-        System.out.println("L5=" + L5.toString());
-        System.out.println("L6=" + L6.toString());
-        System.out.println("L7=" + L7.toString());
-        System.out.println("L8=" + L8.toString());
-        System.out.println("L9=" + L9.toString());
 
-        ArrayList radixSortFinal = L0;
-        radixSortFinal.addAll(L1);
-        radixSortFinal.addAll(L2);
-        radixSortFinal.addAll(L3);
-        radixSortFinal.addAll(L4);
-        radixSortFinal.addAll(L5);
-        radixSortFinal.addAll(L6);
-        radixSortFinal.addAll(L7);
-        radixSortFinal.addAll(L8);
-        radixSortFinal.addAll(L9);
-
-        System.out.println("Lista ordenada segun indice " + indice);
-        System.out.println(radixSortFinal);
     }
 
     public static ArrayList normalize(String[] array, String value) {
@@ -124,7 +62,16 @@ public class RadixSort {
     public static void main(String[] args) {
         int arr[] = {23, 455, 678, 12, 567, 97};
         radixSort(arr);
+    }
 
+    public static void radixSort(int arr[]) {
 
+        String stringArr[] = Arrays.stream(arr)
+                .mapToObj(String::valueOf)
+                .toArray(String[]::new);
+
+        ArrayList radixSortFinal = normalize(stringArr, "0");
+        System.out.println("El array normalizado es el siguiente: " + radixSortFinal.toString());
+        sort(radixSortFinal, radixSortFinal.get(0).toString().length());
     }
 }
