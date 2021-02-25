@@ -38,7 +38,7 @@ public class BubbleSortSorterImple implements Sorter{
                 // sort the array in descending order
                 else {
                     // compares the adjacent element
-                    if (c.compare(arr[j],arr[j + 1])>0) {
+                    if (c.compare(arr[j],arr[j + 1])<0) {
 
                         // swap if left element is smaller than right
                         T temp = arr[j];
