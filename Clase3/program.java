@@ -1,14 +1,28 @@
 package Clase3;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class program {
-    public static void main(String[] args) throws ClassNotFoundException {
-        programaTM();
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //programaTM();
         programaTT();
     }
-    public static void programaTT() {
-        Object s =  MiFactory.getInstance("sorter");
+    public static void programaTT() throws NoSuchMethodException, IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        Sorter sorter =  MiFactory.getInstance("sorter");
+
+        Integer[] arrInt = new Integer[]{1, 2, 3, 45, 67, 8, 97, 52};
+        Comparator<Integer> cInt = (a,b)->a-b;
+        sorter.sort(arrInt,cInt);
+        System.out.println("Ordenado:"+ Arrays.toString(arrInt));
+        System.out.println("<------------------------->");
+        String[] arrString = new String[]{"gisel","julia","pamela","josefina"};
+        Comparator<String> cString = (a,b)->a.compareTo(b);
+        sorter.sort(arrString,cString);
+        System.out.println("Ordenado:"+ Arrays.toString(arrString));
+        System.out.println("<------------------------->");
 
     }
     public static void programaTM(){
