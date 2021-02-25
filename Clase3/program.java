@@ -11,8 +11,20 @@ public class program {
         programaTT();
     }
     public static void programaTT() throws NoSuchMethodException, IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        Time timer = new Time();
+        int cantidad = 1000;
+        //Ejercicio 13
+        Integer[]  numeros = new Integer[cantidad];
+        for (int i=0;i<cantidad;i++){
+            numeros[i]=cantidad-i;
+        }
+        timer.start();
         Sorter sorter =  MiFactory.getInstance("sorter");
-
+        Comparator<Integer> cInt = (a,b)->a-b;
+        sorter.sort(numeros,cInt);
+        System.out.println("Ordenado:"+ Arrays.toString(numeros));
+        /*///
+        Ejercicios hasta el 11
         Integer[] arrInt = new Integer[]{1, 2, 3, 45, 67, 8, 97, 52};
         Comparator<Integer> cInt = (a,b)->a-b;
         sorter.sort(arrInt,cInt);
@@ -23,6 +35,15 @@ public class program {
         sorter.sort(arrString,cString);
         System.out.println("Ordenado:"+ Arrays.toString(arrString));
         System.out.println("<------------------------->");
+        */
+
+        timer.stop();
+        System.out.println(timer.toString());
+        System.out.println("dice timer que duró: "+timer.elapsedTime());
+
+        //con Bubble: transcurrieron  46 Milisegundos
+        //con Heap: transcurrieron  13 Milisegundos
+        //con Quick: transcurrieron  19 Milisegundos
 
     }
     public static void programaTM(){

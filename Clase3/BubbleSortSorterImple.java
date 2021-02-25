@@ -12,9 +12,10 @@ public class BubbleSortSorterImple implements Sorter{
         int size = arr.length;
 
         // for ascending or descending sort
-        System.out.println("Choose Sorting Order:");
-        System.out.println("1 for Ascending \n2 for Descending");
-        int sortOrder = input.nextInt();
+        //Para ejercicio 13 le seteo para ordenar en ascendente y saber el tiempo:
+        //System.out.println("Choose Sorting Order:");
+        //System.out.println("1 for Ascending \n2 for Descending");
+        int sortOrder = 1;//input.nextInt();
 
         // run loops two times
         // first loop access each element of the array
