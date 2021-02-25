@@ -3,7 +3,16 @@ package Clase3;
 import java.util.Arrays;
 
 public class program {
-    public static void main(String[] args){
+    public static void main(String[] args) throws ClassNotFoundException {
+        programaTM();
+        programaTT();
+    }
+    public static void programaTT() {
+        Object s =  MiFactory.getInstance("sorter");
+
+    }
+    public static void programaTM(){
+
         Persona persona1 = new Persona("Ana",12);
         Persona persona2 = new Persona("Jose",11);
         Persona persona3 = new Persona("Emanuel",1);
@@ -27,5 +36,5 @@ public class program {
         System.out.println("Ordenado:"+ Arrays.toString(celulares));
 
         System.out.println("<------------------------->");
-}
+    }
 }
