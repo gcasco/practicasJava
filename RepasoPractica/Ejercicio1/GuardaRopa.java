@@ -1,23 +1,18 @@
-package RepasoPractica;
+package RepasoPractica.Ejercicio1;
 
-import sun.management.counter.Counter;
-
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GuardaRopa {
-    private Map<Integer,Prenda[]> dictionary;
+    private Map<Integer, Prenda[]> dictionary;
     private Integer identificador;
 
     public GuardaRopa(){
         dictionary=new HashMap<Integer,Prenda[]>();
-        identificador=0;
+        Random aleatorio = new Random(System.currentTimeMillis());
+        identificador=aleatorio.nextInt(100);//((int) Math.random()*100);
     }
 
     public Integer guardarPrendas(Prenda[] listaDePrenda){
-        identificador=dictionary.size();
         dictionary.put(identificador,listaDePrenda);
 
         return identificador;

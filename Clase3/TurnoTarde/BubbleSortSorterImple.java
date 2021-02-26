@@ -3,7 +3,7 @@ package Clase3.TurnoTarde;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class BubbleSortSorterImple implements Sorter {
+public class    BubbleSortSorterImple implements Sorter {
 
     Scanner input = new Scanner(System.in);
 
